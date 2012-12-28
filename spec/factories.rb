@@ -54,4 +54,9 @@ FactoryGirl.define do
   factory :project, class: Harvest::Project do
     name { generate(:project_name) }
   end
+
+  factory :oauth_credentials, class: Harvest::OAuthCredentials do
+    client_id 'someclientid'
+    client_secret 'someclientsecret'
+  end
 end
