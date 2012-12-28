@@ -74,6 +74,7 @@ Gem::Specification.new do |s|
     "lib/harvest/timezones.rb",
     "lib/harvest/user.rb",
     "lib/harvest/user_assignment.rb",
+    "lib/harvest/oauth_credentials.rb",
     "lib/harvested.rb",
     "spec/factories.rb",
     "spec/functional/account_spec.rb",
@@ -100,6 +101,7 @@ Gem::Specification.new do |s|
     "spec/harvest/time_entry_spec.rb",
     "spec/harvest/user_assignment_spec.rb",
     "spec/harvest/user_spec.rb",
+    "spec/harvest/oauth_spec.rb",
     "spec/spec_helper.rb",
     "spec/support/harvest_credentials.example.yml",
     "spec/support/harvested_helpers.rb",
@@ -118,6 +120,8 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<httparty>, [">= 0"])
       s.add_runtime_dependency(%q<hashie>, ["~> 1"])
       s.add_runtime_dependency(%q<json>, [">= 0"])
+      s.add_runtime_dependency(%q<oauth2>, ['>= 0'])
+      s.add_runtime_dependency(%q<rack>, ['>= 1'])
       s.add_development_dependency(%q<rspec>, ["~> 2"])
       s.add_development_dependency(%q<jruby-openssl>, [">= 0"])
       s.add_development_dependency(%q<webmock>, [">= 0"])
@@ -127,10 +131,14 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<factory_girl>, [">= 0"])
       s.add_development_dependency(%q<yard>, [">= 0"])
       s.add_development_dependency(%q<redcarpet>, [">= 0"])
+      s.add_development_dependency(%q<oauth2>, ['>= 0'])
+      s.add_development_dependency(%q<rack>, ['>= 1'])
     else
       s.add_dependency(%q<httparty>, [">= 0"])
       s.add_dependency(%q<hashie>, ["~> 1"])
       s.add_dependency(%q<json>, [">= 0"])
+      s.add_dependency(%q<oauth2>, ['>= 0'])
+      s.add_dependency(%q<rack>, ['>= 1'])
       s.add_dependency(%q<rspec>, ["~> 2"])
       s.add_dependency(%q<jruby-openssl>, [">= 0"])
       s.add_dependency(%q<webmock>, [">= 0"])
@@ -145,6 +153,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<httparty>, [">= 0"])
     s.add_dependency(%q<hashie>, ["~> 1"])
     s.add_dependency(%q<json>, [">= 0"])
+    s.add_dependency(%q<oauth2>, ['>= 0'])
+    s.add_dependency(%q<rack>, ['>= 1'])
     s.add_dependency(%q<rspec>, ["~> 2"])
     s.add_dependency(%q<jruby-openssl>, [">= 0"])
     s.add_dependency(%q<webmock>, [">= 0"])

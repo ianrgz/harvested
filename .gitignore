@@ -21,6 +21,8 @@ doc
 .yardoc
 
 ## PROJECT::SPECIFIC
+spec/support/harvest_oauth_credentials.yml
+spec/support/harvest_oauth_credentials.example.yml
 features/support/harvest_credentials.yml
 spec/support/harvest_credentials.yml
 .cassettes
@@ -31,3 +33,4 @@ spec/support/harvest_credentials.yml
 Gemfile.lock
 .bundle
 vendor/bundle
+.rvmrc

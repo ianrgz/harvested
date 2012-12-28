@@ -12,6 +12,7 @@ require 'ext/date'
 require 'ext/time'
 
 require 'harvest/credentials'
+require 'harvest/oauth_credentials'
 require 'harvest/errors'
 require 'harvest/hardy_client'
 require 'harvest/timezones'

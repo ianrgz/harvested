@@ -3,6 +3,8 @@ source :rubygems
 gem 'httparty'
 gem 'hashie', '~> 1'
 gem 'json'
+gem 'oauth2'
+gem 'rack'
 
 group :development, :test do
   gem 'rspec', '~> 2'
