@@ -13,7 +13,7 @@ require 'ext/time'
 
 require 'harvest/credentials'
 require 'harvest/oauth_credentials'
-require 'harvest/oauth_client.rb'
+require 'harvest/oauth_client'
 require 'harvest/errors'
 require 'harvest/hardy_client'
 require 'harvest/timezones'
@@ -66,6 +66,32 @@ module Harvest
     def hardy_client(subdomain, username, password, options = {})
       retries = options.delete(:retry)
       Harvest::HardyClient.new(client(subdomain, username, password, options), (retries || 5))
+    end
+
+    # Creates a oauth client that will make all requests to harvest OAuth2 API.
+    #
+    # == Params
+    # * client_id - The app's client id provided in the admin panel of your harvest account.
+    # * client_secret - The app's secret token also provided in the admin panel of your harvest account.
+    #
+    # == Examples
+    #   Harvest.oauth_client('someclientid', 'someclientsecret')
+    #
+    # == Errors
+    # The oauth client will raise the following errors
+    #
+    # invalid_request
+    # invalid_client
+    # invalid_token
+    # invalid_grant
+    # unsupported_grant_type
+    # invalid_scope
+    #
+    # @return [Harvest::OAuthClient]
+    # @see Harvest::OAuthClient
+    def oauth_client client_id, client_secret
+      credentials = Harvest::OAuthCredentials.new(client_id, client_secret)
+      Harvest::OAuthClient.new credentials
     end
   end
 end

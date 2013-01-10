@@ -19,18 +19,15 @@ end
 
 #Harvest OAuth Authorization
 describe Harvest::OAuthClient do
-  context '#validations' do
-    it 'should be valid given the proper oauth credentials' do
-      Harvest::OAuthClient.new(FactoryGirl.build(:oauth_credentials)).should be_valid
-    end
-  end
-
-  context '#requests' do
+  let(:oauth_client) { Harvest::OAuthClient.new(FactoryGirl.build(:oauth_credentials)) }
+  context '#client' do
     it 'should build the authorize URL given the proper credentials' do
-      client = Harvest::OAuthClient.new(FactoryGirl.build(:oauth_credentials))
-      authorize_url = client.authorize_url('http://supercoolsite.com')
-      authorize_url.length.should >= 0
-      puts authorize_url
+      authorize_url = oauth_client.authorize_url('http://supercoolsite.com')
+      authorize_url.length.should > 0
+    end
+
+    it 'should respond to dynamic methods' do
+      oauth_client.should respond_to(%w(clients contacts time tasks projects reports).sample.to_sym)
     end
   end
 end
